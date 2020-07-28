@@ -1,4 +1,5 @@
 const pokedex = document.getElementById('pokedex');
+const cardback = document.getElementById('cardback');
 
 const fetchPokemon = () => {
     const promises = [];
@@ -30,6 +31,20 @@ const displayPokemon = (pokemon) => {
         )
         .join('');
     pokedex.innerHTML = pokemonHTMLString;
+};
+
+const displayPokemonStats = (pokemon) => {
+    console.log(pokemon);
+    const pokemonHTMLString = pokemon
+        .map(
+            (pokemanstats) => `
+        <li>
+            <p>Type: ${pokemanstats.type}</p>
+        </li>
+    `
+        )
+        .join('');
+    cardback.innerHTML = pokemonHTMLString;
 };
 
 fetchPokemon();
