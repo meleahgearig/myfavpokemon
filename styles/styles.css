@@ -1,4 +1,4 @@
-@import 'https://fonts.googleapis.com/css?family=Lily+Script+One';
+@import url('https://fonts.googleapis.com/css2?family=Signika:wght@400;700&display=swap');
 body {
   background: #eee;
   font-family: Arial, Helvetica, sans-serif;
@@ -43,7 +43,7 @@ body {
 }
 
 .card .back{
-    background: white;
+    background: #AEB8D4;
     transform: rotateY(180deg);
     display: flex;
     justify-content: center;
@@ -61,15 +61,17 @@ body {
 .card-title{
     text-transform: uppercase;
     font-size: 28px;
-    color: #0E1726;
+    color: #F2F2F3;
     display: flex;
     justify-content: center;
+    font-family: 'Signika', sans-serif;
 }
 
 .card-subtitle{
-    font-weight: lighter;
-    color: #1C2A56;
-    text-transform: lowercase;
+    font-weight: normal;
+    color: white;
+    text-transform: uppercase;
+    font-family: 'Signika', sans-serif;
 }
 
 .card-image{
@@ -82,7 +84,9 @@ h1{
     text-transform: uppercase;
     text-align: center;
     font-size: 40px;
-    color: #7A88A6;
+    color: #1C2A56;
+    font-family: 'Signika', sans-serif;
+    font-weight: 700;
 }
 
 /* 

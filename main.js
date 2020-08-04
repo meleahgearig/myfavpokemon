@@ -41,8 +41,8 @@ const displayPokemon = (pokemon) => {
                         <h2 class="card-title">${pokeman.name}</h2>
                     </figure>
                     <figure class="back">
-                        <p>Type: ${pokeman.type}</p>
-                        <p>Species: ${pokeman.species}</p>
+                        <p class="card-subtitle">Type: ${pokeman.type}</p>
+                        <p class="card-subtitle">Species: ${pokeman.species}</p>
                     </figure>
                 </div>
             </div> 
