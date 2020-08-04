@@ -49,6 +49,7 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    border-radius: 5px;;
 }
 
 #pokedex{
@@ -80,10 +81,16 @@ body {
     justify-content: center;
 }
 
+img.card-resize{
+    height: 10px;
+    display:flex;
+    justify-content: center;
+}
+
 h1{
     text-transform: uppercase;
     text-align: center;
-    font-size: 40px;
+    font-size: 60px;
     color: #1C2A56;
     font-family: 'Signika', sans-serif;
     font-weight: 700;

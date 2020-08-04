@@ -17,6 +17,7 @@ const fetchPokemon = () => {
         const pokemon = results.map((result) => ({
             name: result.name,
             image: result.sprites['front_default'],
+            imageback: result.sprites['back_default'],
             type: result.types.map((type) => type.type.name).join(', '),
             id: result.id,
             species: result.species.name
@@ -41,6 +42,8 @@ const displayPokemon = (pokemon) => {
                         <h2 class="card-title">${pokeman.name}</h2>
                     </figure>
                     <figure class="back">
+                        <h2 class="card-title">${pokeman.id}</h2>
+                        <img card="card-image" src="${pokeman.imageback}"/>
                         <p class="card-subtitle">Type: ${pokeman.type}</p>
                         <p class="card-subtitle">Species: ${pokeman.species}</p>
                     </figure>
