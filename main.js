@@ -1,50 +1,68 @@
 const pokedex = document.getElementById('pokedex');
 const cardback = document.getElementById('cardback');
 
+//define a function to get 150 pokemon
 const fetchPokemon = () => {
+    
     const promises = [];
     for (let i = 1; i <= 150; i++) {
         const url = `https://pokeapi.co/api/v2/pokemon/${i}`;
         promises.push(fetch(url).then((res) => res.json()));
     }
+
+    
+    
     Promise.all(promises).then((results) => {
+        console.log(results);
         const pokemon = results.map((result) => ({
             name: result.name,
             image: result.sprites['front_default'],
             type: result.types.map((type) => type.type.name).join(', '),
-            id: result.id
+            id: result.id,
+            species: result.species.name
         }));
+
         displayPokemon(pokemon);
+        console.log(pokemon)
     });
 };
+
 
 const displayPokemon = (pokemon) => {
     console.log(pokemon);
     const pokemonHTMLString = pokemon
         .map(
             (pokeman) => `
-        <li class="card">
-            <img card="card-image" src="${pokeman.image}"/>
-            <h2 class="card-title">${pokeman.name}</h2>
-        </li>
-    `
+        
+            <div class="card-container">
+                <div class="card">
+                    <figure class="front">
+                        <img card="card-image" src="${pokeman.image}"/>
+                        <h2 class="card-title">${pokeman.name}</h2>
+                    </figure>
+                    <figure class="back">
+                        <p>Type: ${pokeman.type}</p>
+                        <p>Species: ${pokeman.species}</p>
+                    </figure>
+                </div>
+            </div> 
+       `
         )
         .join('');
+        
     pokedex.innerHTML = pokemonHTMLString;
 };
 
-const displayPokemonStats = (pokemon) => {
-    console.log(pokemon);
-    const pokemonHTMLString = pokemon
-        .map(
-            (pokemanstats) => `
-        <li>
-            <p>Type: ${pokemanstats.type}</p>
-        </li>
-    `
-        )
-        .join('');
-    cardback.innerHTML = pokemonHTMLString;
-};
-
 fetchPokemon();
+
+{/* <div class="card">
+  <div class="content">
+    <div class="front">
+      Front
+    </div>
+    <div class="back">
+      Back!
+    </div>
+  </div>
+</div> */}
+
