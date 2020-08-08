@@ -91,6 +91,7 @@ h1{
 }
 
 form{
+    display: block;
     max-width: 400px;
     margin: 0 auto;
     font-family: 'Signika', sans-serif;
@@ -100,9 +101,42 @@ fieldset{
     color: #132042;
     border-radius: 10px;
     border: 2px solid #1C2A56;
+    margin: 20px;
 }
 
+label{
+    display: block;
+    margin: 10px;
+}
 
+form#pokeForm input#name{
+    border-radius: 1rem;
+    border: none;
+    padding: 10px;
+    background-color: #afbcda;
+}
+
+form#pokeForm input#species{
+    border-radius: 1rem;
+    border: none;
+    padding: 10px;
+    background-color: #afbcda;
+}
+
+form#pokeForm input#addpokemon{
+    font-weight: normal;
+    color: white;
+    text-transform: uppercase;
+    font-family: 'Signika', sans-serif;
+    padding: 10px;
+    background: linear-gradient(#afbcda, #1C2A56);
+    border: none;
+}
+
+#addpokemon{
+    margin-left: 125px;
+    margin-bottom: 20px;
+}
 
 
 /* 

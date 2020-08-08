@@ -58,19 +58,13 @@ const displayPokemon = (pokemon) => {
 
 fetchPokemon();
 
-const pokeForm = document.querySelector(#pokeForm);
+const pokeForm = document.querySelector('#pokeForm');
 
 pokeForm.addEventListener('submit', (event) => {
-    function createNode(element) {
-    return document.createElement(element);
-}
 
-    function append(parent, el) {
-    return parent.appendChild(el);
-}
     event.preventDefault();
 
-    const formData = new FormData(pokeform);
+    const formData = new FormData(pokeForm);
 
     console.log(FormData);
 
@@ -96,7 +90,15 @@ pokeForm.addEventListener('submit', (event) => {
     append(front, card);
     append(cardTitleFront, front);
     append(back, card);
-    append(cardTitleBack, back);
+    append(cardTitleBack, back);    
+    
+    function createNode(element) {
+    return document.createElement(element);
+    }
+
+    function append(parent, el) {
+    return parent.appendChild(el);
+    }
 
    
 })
