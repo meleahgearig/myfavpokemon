@@ -81,12 +81,6 @@ body {
     justify-content: center;
 }
 
-img.card-resize{
-    height: 10px;
-    display:flex;
-    justify-content: center;
-}
-
 h1{
     text-transform: uppercase;
     text-align: center;

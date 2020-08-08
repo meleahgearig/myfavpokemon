@@ -58,6 +58,34 @@ const displayPokemon = (pokemon) => {
 
 fetchPokemon();
 
+// const pokeForm = document.querySelector(#pokeForm);
+
+// pokeForm.addEventListener('submit', (event) => {
+    
+//     event.preventDefault();
+
+//     const formData = new FormData(pokeform);
+
+//     let pokeObj = new Object();
+
+//     for(let pair of formData.entries()) {
+//         pokeObj[pair[0]] = pair[1]
+//     }
+
+//     newPokeHTML = `
+//     <div class="card-container">
+//         <div class="card">
+//             <figure class="front">
+//                 <h2 class="card-title">${pokeObj.name}</h2>
+//             </figure>
+//             <figure class="back">
+//                 <h2 class="card-title">${pokeObj.species}</h2>
+//             </figure>
+//         </div>
+//     </div> 
+//     `
+// })
+
 {/* <div class="card">
   <div class="content">
     <div class="front">
