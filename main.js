@@ -58,35 +58,63 @@ const displayPokemon = (pokemon) => {
 
 fetchPokemon();
 
-// const pokeForm = document.querySelector(#pokeForm);
+const pokeForm = document.querySelector(#pokeForm);
 
-// pokeForm.addEventListener('submit', (event) => {
-    
-//     event.preventDefault();
+pokeForm.addEventListener('submit', (event) => {
+    function createNode(element) {
+    return document.createElement(element);
+}
 
-//     const formData = new FormData(pokeform);
+    function append(parent, el) {
+    return parent.appendChild(el);
+}
+    event.preventDefault();
 
-//     let pokeObj = new Object();
+    const formData = new FormData(pokeform);
 
-//     for(let pair of formData.entries()) {
-//         pokeObj[pair[0]] = pair[1]
-//     }
+    console.log(FormData);
 
-//     newPokeHTML = `
-//     <div class="card-container">
-//         <div class="card">
-//             <figure class="front">
-//                 <h2 class="card-title">${pokeObj.name}</h2>
-//             </figure>
-//             <figure class="back">
-//                 <h2 class="card-title">${pokeObj.species}</h2>
-//             </figure>
-//         </div>
-//     </div> 
-//     `
-// })
+    let pokeObj = new Object();
 
-{/* <div class="card">
+    for(let pair of formData.entries()) {
+        pokeObj[pair[0]] = pair[1]
+    }
+
+    const cardContainer = createNode('div');
+
+    const card = createNode('div');
+
+    const front = createNode('figure');
+
+    const cardTitleFront = createNode('h2');
+
+    const back = createNode('figure');
+
+    const cardTitleBack = createNode('h2');
+
+    append(cardContainer,card);
+    append(front, card);
+    append(cardTitleFront, front);
+    append(back, card);
+    append(cardTitleBack, back);
+
+   
+})
+
+ // newPokeHTML = `
+    // <div class="card-container">
+    //     <div class="card">
+    //         <figure class="front">
+    //             <h2 class="card-title">${pokeObj.name}</h2>
+    //         </figure>
+    //         <figure class="back">
+    //             <h2 class="card-title">${pokeObj.species}</h2>
+    //         </figure>
+    //     </div>
+    // </div> 
+    // `
+
+/* <div class="card">
   <div class="content">
     <div class="front">
       Front
@@ -95,5 +123,5 @@ fetchPokemon();
       Back!
     </div>
   </div>
-</div> */}
+</div> */
 
