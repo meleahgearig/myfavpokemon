@@ -1,5 +1,4 @@
 const pokedex = document.getElementById('pokedex');
-const cardback = document.getElementById('cardback');
 
 //define a function to get 150 pokemon
 const fetchPokemon = () => {
@@ -75,31 +74,42 @@ pokeForm.addEventListener('submit', (event) => {
     }
 
     const cardContainer = createNode('div');
+        cardContainer.className = "card-container";
 
     const card = createNode('div');
+        card.className= "card";
 
     const front = createNode('figure');
+        front.className="front";
 
     const cardTitleFront = createNode('h2');
+        cardTitleFront.className = "card-title";
+        cardTitleFront.innerHTML = pokeObj.name;
 
     const back = createNode('figure');
+        back.className = "back";
 
     const cardTitleBack = createNode('h2');
+        cardTitleBack.className = "card-title";
+        cardTitleBack.innerHTML = pokeObj.species;
 
     append(cardContainer,card);
-    append(front, card);
-    append(cardTitleFront, front);
-    append(back, card);
-    append(cardTitleBack, back);    
+    append(front, cardTitleFront);
+    append(card, front);
+    append(card, back);
+    append(back, cardTitleBack);
+
+    append(pokedex, cardContainer);    
+
+    console.log(cardContainer)
     
     function createNode(element) {
-    return document.createElement(element);
+        return document.createElement(element);
     }
 
     function append(parent, el) {
-    return parent.appendChild(el);
+        return parent.appendChild(el);
     }
-
    
 })
 
