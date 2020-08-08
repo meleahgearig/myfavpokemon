@@ -104,6 +104,10 @@ fieldset{
     margin: 20px;
 }
 
+legend{
+    font-weight: 800;
+}
+
 label{
     display: block;
     margin: 10px;
