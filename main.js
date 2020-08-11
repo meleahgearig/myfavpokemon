@@ -114,9 +114,16 @@ pokeForm.addEventListener('submit', (event) => {
 })
 
 const typeToggleBtn = document.getElementById('toggleType');
+let isGrassPoison = true;
 
 typeToggleBtn.addEventListener('click', () => {
-    console.log('Hey I have been clicked')
+    pokemon.filter(pokemon => {
+        return isGrassPoison ? pokemon.type == 'grass, poison' : pokemon.type == 'fire'
+    })
+
+    .map(pokemon => {
+        
+    })
 })
 
 
