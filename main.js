@@ -1,4 +1,8 @@
+// Define Pokedex variable
 const pokedex = document.getElementById('pokedex');
+
+//Define allPokemon variable
+let allPokemon; 
 
 //define a function to get 150 pokemon
 const fetchPokemon = () => {
@@ -23,11 +27,15 @@ const fetchPokemon = () => {
         }));
 
         displayPokemon(pokemon);
+
+        allPokemon = pokemon;
+
         console.log(pokemon)
     });
 };
+//End Fetch Pokemon
 
-
+//Begin Display Pokemon
 const displayPokemon = (pokemon) => {
     console.log(pokemon);
     const pokemonHTMLString = pokemon
@@ -54,9 +62,12 @@ const displayPokemon = (pokemon) => {
         
     pokedex.innerHTML = pokemonHTMLString;
 };
+//End Display Pokemon
 
+//run Fetch Pokemon after Display
 fetchPokemon();
 
+//Begin Add Pokemon 
 const pokeForm = document.querySelector('#pokeForm');
 
 pokeForm.addEventListener('submit', (event) => {
@@ -112,24 +123,210 @@ pokeForm.addEventListener('submit', (event) => {
     }
    
 })
+//End Add Pokemon
 
-const typeToggleBtn = document.getElementById('toggleType');
-let isGrassPoison = true;
+// Begin filter functions
+//All Pokemon
+const filterAll = document.getElementById('filterAll'); 
+let isAll = true;
 
-typeToggleBtn.addEventListener('click', () => {
-    pokemon.filter(pokemon => {
-        return isGrassPoison ? pokemon.type == 'grass, poison' : pokemon.type == 'fire'
-    })
-
-    .map(pokemon => {
-        
-    })
+filterAll.addEventListener('click', () => {
+    displayPokemon(allPokemon);
 })
 
+//Grass Pokemon
+const filterGrass = document.getElementById('filterGrass');
+let isGrass = true;
 
+filterGrass.addEventListener('click', () => {
+    isGrass = !isGrass;
+    const grassPokemon = allPokemon.filter(pokedex => {
+            return pokedex.type.includes('grass');
+    })
+    displayPokemon(grassPokemon);
+})
 
+//Fire Pokemon
+const filterFire = document.getElementById('filterFire');
+let isFire = true;
 
+filterFire.addEventListener('click', () => {
+    isFire = !isFire;
+    const firePokemon = allPokemon.filter(pokedex => {
+            return pokedex.type.includes('fire');
+    })
+    displayPokemon(firePokemon);
+})
 
+//Water Pokemon
+const filterWater = document.getElementById('filterWater'); 
+let isWater = true;
+
+filterWater.addEventListener('click', () => {
+    isWater = !isWater;
+    const waterPokemon = allPokemon.filter(pokedex => {
+            return pokedex.type.includes('water');
+    })
+    displayPokemon(waterPokemon);
+})
+
+//Bug Pokemon
+const filterBug = document.getElementById('filterBug'); 
+let isBug = true;
+
+filterBug.addEventListener('click', () => {
+    isBug = !isBug;
+    const bugPokemon = allPokemon.filter(pokedex => {
+            return pokedex.type.includes('bug');
+    })
+    displayPokemon(bugPokemon);
+})
+
+//Dragon Pokemon
+const filterDragon = document.getElementById('filterDragon'); 
+let isDragon = true;
+
+filterDragon.addEventListener('click', () => {
+    isDragon = !isDragon;
+    const dragonPokemon = allPokemon.filter(pokedex => {
+            return pokedex.type.includes('dragon');
+    })
+    displayPokemon(dragonPokemon);
+})
+
+//Ice Pokemon
+const filterIce = document.getElementById('filterIce'); 
+let isIce = true;
+
+filterIce.addEventListener('click', () => {
+    isIce = !isIce;
+    const icePokemon = allPokemon.filter(pokedex => {
+            return pokedex.type.includes('ice');
+    })
+    displayPokemon(icePokemon);
+})
+
+//Fighting Pokemon
+const filterFighting = document.getElementById('filterFighting'); 
+let isFighting = true;
+
+filterFighting.addEventListener('click', () => {
+    isFighting = !isFighting;
+    const fightingPokemon = allPokemon.filter(pokedex => {
+            return pokedex.type.includes('fighting');
+    })
+    displayPokemon(fightingPokemon);
+})
+
+//Flying Pokemon
+const filterFlying = document.getElementById('filterFlying'); 
+let isFlying = true;
+
+filterFlying.addEventListener('click', () => {
+    isFlying = !isFlying;
+    const flyingPokemon = allPokemon.filter(pokedex => {
+            return pokedex.type.includes('flying');
+    })
+    displayPokemon(flyingPokemon);
+})
+
+//Ghost Pokemon
+const filterGhost = document.getElementById('filterGhost'); 
+let isGhost = true;
+
+filterGhost.addEventListener('click', () => {
+    isGhost = !isGhost;
+    const ghostPokemon = allPokemon.filter(pokedex => {
+            return pokedex.type.includes('ghost');
+    })
+    displayPokemon(ghostPokemon);
+})
+
+//Ground Pokemon
+const filterGround = document.getElementById('filterGround'); 
+let isGround = true;
+
+filterGround.addEventListener('click', () => {
+    isGround = !isGround;
+    const groundPokemon = allPokemon.filter(pokedex => {
+            return pokedex.type.includes('ground');
+    })
+    displayPokemon(groundPokemon);
+})
+
+//Electric Pokemon
+const filterElectric = document.getElementById('filterElectric'); 
+let isElectric = true;
+
+filterElectric.addEventListener('click', () => {
+    isElectric = !isElectric;
+    const electricPokemon = allPokemon.filter(pokedex => {
+            return pokedex.type.includes('electric');
+    })
+    displayPokemon(electricPokemon);
+})
+
+//Normal Pokemon
+const filterNormal = document.getElementById('filterNormal'); 
+let isNormal = true;
+
+filterNormal.addEventListener('click', () => {
+    isNormal = !isNormal;
+    const normalPokemon = allPokemon.filter(pokedex => {
+            return pokedex.type.includes('normal');
+    })
+    displayPokemon(normalPokemon);
+})
+
+//Poison Pokemon
+const filterPoison = document.getElementById('filterPoison'); 
+let isPoison = true;
+
+filterPoison.addEventListener('click', () => {
+    isPoison = !isPoison;
+    const poisonPokemon = allPokemon.filter(pokedex => {
+            return pokedex.type.includes('poison');
+    })
+    displayPokemon(poisonPokemon);
+})
+
+//Psychic Pokemon
+const filterPsychic = document.getElementById('filterPsychic'); 
+let isPsychic = true;
+
+filterPsychic.addEventListener('click', () => {
+    isPsychic = !isPsychic;
+    const psychicPokemon = allPokemon.filter(pokedex => {
+            return pokedex.type.includes('psychic');
+    })
+    displayPokemon(psychicPokemon);
+})
+
+//Rock Pokemon
+const filterRock = document.getElementById('filterRock'); 
+let isRock = true;
+
+filterRock.addEventListener('click', () => {
+    isRock = !isRock;
+    const rockPokemon = allPokemon.filter(pokedex => {
+            return pokedex.type.includes('rock');
+    })
+    displayPokemon(rockPokemon);
+})
+
+//Fairy Pokemon
+const filterFairy = document.getElementById('filterFairy'); 
+let isFairy = true;
+
+filterFairy.addEventListener('click', () => {
+    isFairy = !isFairy;
+    const fairyPokemon = allPokemon.filter(pokedex => {
+            return pokedex.type.includes('fairy');
+    })
+    displayPokemon(fairyPokemon);
+})
+
+//End Filter Functions
 
 
 
