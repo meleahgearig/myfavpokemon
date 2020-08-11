@@ -113,6 +113,19 @@ pokeForm.addEventListener('submit', (event) => {
    
 })
 
+const typeToggleBtn = document.getElementById('toggleType');
+
+typeToggleBtn.addEventListener('click', () => {
+    console.log('Hey I have been clicked')
+})
+
+
+
+
+
+
+
+
  // newPokeHTML = `
     // <div class="card-container">
     //     <div class="card">
