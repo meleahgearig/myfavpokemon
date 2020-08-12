@@ -328,6 +328,25 @@ filterFairy.addEventListener('click', () => {
 
 //End Filter Functions
 
+//Begin Search Function
+
+const searchPokemon = document.getElementById('searchPokemon');
+let valFromEl = searchPokemon.value;
+let searchString = valFromEl.toLowerCase();
+
+// let searchString = valFromEl.toLowerCase()
+
+searchPokemon.addEventListener('change', () => {
+    
+    
+    const searchPokemon = allPokemon.filter(pokedex => {
+        return pokedex.name.startsWith(searchString);
+    })
+    displayPokemon(searchPokemon);
+})
+
+//End Search Function
+
 
 
  // newPokeHTML = `
