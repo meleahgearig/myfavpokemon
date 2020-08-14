@@ -1,13 +1,19 @@
+//import example
+import { addition } from './testimport.js';
+console.log(addition(3));
+
+
 // Define Pokedex variable
 const pokedex = document.getElementById('pokedex');
 
 //Define allPokemon variable
 let allPokemon; 
 
-//define a function to get 150 pokemon
+//define a function to get 150 pokemon from Poke API
 const fetchPokemon = () => {
     
     const promises = [];
+    //this is a loop that fetches 150 pokemon from the API
     for (let i = 1; i <= 150; i++) {
         const url = `https://pokeapi.co/api/v2/pokemon/${i}`;
         promises.push(fetch(url).then((res) => res.json()));
@@ -17,6 +23,7 @@ const fetchPokemon = () => {
     
     Promise.all(promises).then((results) => {
         console.log(results);
+        //this creates the pokemon array that we can use
         const pokemon = results.map((result) => ({
             name: result.name,
             image: result.sprites['front_default'],
@@ -28,6 +35,7 @@ const fetchPokemon = () => {
 
         displayPokemon(pokemon);
 
+        //define allPokemon function by assigning the pokemon array to it so it can be used in other functions
         allPokemon = pokemon;
 
         console.log(pokemon)
@@ -35,9 +43,11 @@ const fetchPokemon = () => {
 };
 //End Fetch Pokemon
 
-//Begin Display Pokemon
+//Begin Display Pokemon, this function displays the pokemon on the screen by using innerHTML
 const displayPokemon = (pokemon) => {
     console.log(pokemon);
+
+    //pokemonHTMLString is a manipulation of a string using the pokemon array that we fetched using the map method
     const pokemonHTMLString = pokemon
         .map(
             (pokeman) => `
@@ -67,23 +77,23 @@ const displayPokemon = (pokemon) => {
 //run Fetch Pokemon after Display
 fetchPokemon();
 
-//Begin Add Pokemon 
+//Begin Add Pokemon (formData)
 const pokeForm = document.querySelector('#pokeForm');
-
+    //when pokeForm is submitted this function will run
 pokeForm.addEventListener('submit', (event) => {
 
-    event.preventDefault();
+    event.preventDefault(); //this prevents the page from reloading
 
-    const formData = new FormData(pokeForm);
+    const formData = new FormData(pokeForm); //this logs the data the user enters
 
     console.log(FormData);
 
     let pokeObj = new Object();
-
     for(let pair of formData.entries()) {
         pokeObj[pair[0]] = pair[1]
     }
 
+    //these variables create nodes and attach to html elements
     const cardContainer = createNode('div');
         cardContainer.className = "card-container";
 
@@ -104,6 +114,7 @@ pokeForm.addEventListener('submit', (event) => {
         cardTitleBack.className = "card-title";
         cardTitleBack.innerHTML = pokeObj.species;
 
+    //these append functions attach each element to the other so that the new card will display correctly
     append(cardContainer,card);
     append(front, cardTitleFront);
     append(card, front);
@@ -114,6 +125,7 @@ pokeForm.addEventListener('submit', (event) => {
 
     console.log(cardContainer)
     
+    //these are reusable functions
     function createNode(element) {
         return document.createElement(element);
     }
@@ -125,7 +137,7 @@ pokeForm.addEventListener('submit', (event) => {
 })
 //End Add Pokemon
 
-// Begin filter functions
+// Begin filter functions, when the user clicks the button these functions will run
 //All Pokemon
 const filterAll = document.getElementById('filterAll'); 
 let isAll = true;
@@ -328,21 +340,19 @@ filterFairy.addEventListener('click', () => {
 
 //End Filter Functions
 
-//Begin Search Function
+//Begin Search Function, this function runs when the user makes a change to the input box
 
-const searchPokemon = document.getElementById('searchPokemon');
-let valFromEl = searchPokemon.value;
-let searchString = valFromEl.toLowerCase();
+const searchPokemonEl = document.getElementById('searchPokemon');
 
-// let searchString = valFromEl.toLowerCase()
-
-searchPokemon.addEventListener('change', () => {
-    
-    
+searchPokemonEl.addEventListener('input', () => {
+    let valFromEl = searchPokemonEl.value;
+    let searchString = valFromEl.toLowerCase();
     const searchPokemon = allPokemon.filter(pokedex => {
         return pokedex.name.startsWith(searchString);
     })
     displayPokemon(searchPokemon);
+
+    console.log(searchString)
 })
 
 //End Search Function
