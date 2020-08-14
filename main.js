@@ -6,10 +6,10 @@ console.log(addition(3));
 // Define Pokedex variable
 const pokedex = document.getElementById('pokedex');
 
-//Define allPokemon variable
+//Define allPokemon variable to use in other scopes
 let allPokemon; 
 
-//define a function to get 150 pokemon from Poke API
+//define a function to get 150 pokemon from Poke API, first arrow function used
 const fetchPokemon = () => {
     
     const promises = [];
@@ -47,7 +47,7 @@ const fetchPokemon = () => {
 const displayPokemon = (pokemon) => {
     console.log(pokemon);
 
-    //pokemonHTMLString is a manipulation of a string using the pokemon array that we fetched using the map method
+    //pokemonHTMLString is a manipulation of a string using the pokemon array that we fetched using the map method also using template literals
     const pokemonHTMLString = pokemon
         .map(
             (pokeman) => `
@@ -87,7 +87,7 @@ pokeForm.addEventListener('submit', (event) => {
     const formData = new FormData(pokeForm); //this logs the data the user enters
 
     console.log(FormData);
-
+    //create pokeObj as a new object to use in loop along with Object.entries
     let pokeObj = new Object();
     for(let pair of formData.entries()) {
         pokeObj[pair[0]] = pair[1]
@@ -358,7 +358,7 @@ searchPokemonEl.addEventListener('input', () => {
 //End Search Function
 
 
-
+//below are notes I used for creating cards
  // newPokeHTML = `
     // <div class="card-container">
     //     <div class="card">
